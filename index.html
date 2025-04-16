@@ -33,8 +33,16 @@
         .sub-title, .text {
             font-weight: 300;
         }
+        .badges {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            gap: 10px; /* Space between badges */
+            margin-top: 20px;
+        }
         .badges img {
-            margin: 10px;
+            max-width: 100%; /* Ensure badges don't overflow */
+            height: auto; /* Maintain aspect ratio */
         }
         .case-study {
             margin-top: 20px;
@@ -64,22 +72,20 @@
         <p class="text">Bridging creativity and data science, we offer a unique approach that blends strategic insight with technological expertise.</p>
         <div class="badges">
             <!-- Add your badges here -->
-                        <!-- Google Partner Badge -->
+                <!-- Google Partner Badge -->
             <a href="https://www.google.com/partners/agency?id=8642716440" target="_blank">
             <img src="https://www.gstatic.com/partners/badge/images/2024/PartnerBadgeClickable.svg"/>
             </a>
-           
-            <!-- Pinterest Badge -->
+                <!-- Pinterest Badge -->
             <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fd73112c-9679-4c09-be0a-35b450d014b3" data-share-badge-host="https://www.credly.com"></div>
             <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-           
         </div>
         <div class="case-study">
             <a href="case-study-link.html">Comment Willy anti-gapi a réduit le gaspillage de son budget publicitaire.</a>
         </div>
     </div>
     <footer class="footer">
-        <p>&copy; 2025 ade with ☕ in Paris 18, France. <a href="mentions.html">Mentions Légales</a></p>
+        <p>&copy; 2025 Made with ☕ in Paris 18, France. <a href="mentions.html">Mentions Légales</a></p>
     </footer>
 </body>
 </html>
