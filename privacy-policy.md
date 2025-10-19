@@ -1,3 +1,11 @@
+---
+layout: default
+title: Privacy Policy
+robots: noindex, nofollow
+---
+
+<meta name="robots" content="noindex, nofollow">
+
 # Privacy Policy
 
 _Last updated: **2025-10-19**_
