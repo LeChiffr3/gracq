@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>puZzLe — Incrementality, without the operational burden</title>
+
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #111;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 0;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #444;
+    }
+
+    ul {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #444;
+    }
+
+    .section {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-color: #f2f2f2;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        font-size: 14px;
+        border: 1px dashed #ddd;
+    }
+
+    .cta {
+        text-align: center;
+        padding: 100px 0;
+        background-color: #f9f9f9;
+    }
+
+    .cta h2 {
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 14px 32px;
+        font-size: 16px;
+        text-decoration: none;
+        background-color: #111;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+    @media (max-width: 900px) {
+        .section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+.section-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.section-image:hover {
+    transform: scale(1.02);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Hero Section -->
+    <div class="section">
+        <div>
+            <h1>🧩 puZzLe</h1>
+            <h2>Modern measurement, without the operational burden.</h2>
+
+            <p>Measurement is shifting from attribution to incrementality. Marketing teams are expected to prove causal impact, not just report conversions.</p>
+
+            <p>Conversion lift tools offered by major platforms exist—but they are limited in scope, restricted to a single channel, and rarely provide the depth needed to guide real budget allocation decisions.</p>
+
+            <p>Geo-based incrementality testing solves this problem. It measures true causal impact across markets and provides reliable estimates of marginal return.</p>
+
+            <p>But in practice, geo lift experiments are difficult to run.</p>
+
+            <p>They require complex experimental design, statistical power analysis, strict geo compliance, continuous monitoring, and specialized econometric expertise. Most marketing teams do not have the operational bandwidth, and most data scientists are not embedded deeply enough in media execution to run continuous experimentation.</p>
+        </div>
+
+        <div>
+            <img src = 'https://i.imgur.com/zZpKE4P.png' class="section-image" >
+        </div>
+    </div>
+
+    <!-- Automation Section -->
+    <div class="section">
+        <div>
+            <h2>puZzLe automates incrementality testing end-to-end.</h2>
+
+            <p>puZzLe is the first platform designed to operationalize geo-based incrementality testing for marketing teams.</p>
+
+            <p>It handles the full experimentation lifecycle:</p>
+
+            <ul>
+                <li>Experiment design and geo selection</li>
+                <li>Statistical power analysis and feasibility validation</li>
+                <li>Campaign compliance monitoring and contamination detection</li>
+                <li>Incrementality estimation using synthetic control methods</li>
+                <li>Lift measurement with confidence intervals and robust inference</li>
+            </ul>
+
+            <p>No manual analysis. No custom modeling. No operational overhead.</p>
+
+            <p>One platform to design, run, and analyze incrementality experiments across your media channels.</p>
+        </div>
+
+        <div>
+            <img src = 'https://i.imgur.com/9krm07i.png' class="section-image" >
+        </div>
+    </div>
+
+    <!-- Optimization Section -->
+    <div class="section">
+        <div>
+            <h2>Move from measurement to optimization</h2>
+
+            <p>Once you have accumulated incrementality results, puZzLe allows you to translate experimental evidence into actionable budget decisions.</p>
+
+            <p>Using observed causal response curves, puZzLe estimates the allocation of budget across channels and markets that maximizes incremental revenue under your business constraints.</p>
+
+            <p>This enables you to move beyond attribution-based optimization and allocate media investment based on proven causal return.</p>
+        </div>
+
+        <div>
+            <img src = 'https://i.imgur.com/fNb4nuw.png' class="section-image" >
+        </div>
+    </div>
+
+    <!-- Credibility Section -->
+    <div class="section">
+        <div>
+            <h2>Built for marketing teams, trusted by finance</h2>
+
+            <ul>
+                <li>Causal measurement instead of attributed performance</li>
+                <li>Transparent and auditable experiment methodology</li>
+                <li>Structured experimentation at scale</li>
+                <li>Decision-ready outputs for budget planning and capital allocation</li>
+            </ul>
+        </div>
+
+        <div class="image-placeholder">
+            Square Image Placeholder
+        </div>
+    </div>
+
+</div>
+
+<!-- CTA Section -->
+<div class="cta">
+    <div class="container">
+        <h2>Request a demo</h2>
+        <p>See how puZzLe can help you measure true incrementality and optimize your media investment with confidence.</p>
+        <a href="#" class="cta-button">Schedule a Demo</a>
+    </div>
+</div>
+
+</body>
+</html>
