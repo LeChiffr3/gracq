@@ -1,3 +1,11 @@
+---
+layout: default
+title: Privacy Policy
+robots: noindex, nofollow
+---
+
+<meta name="robots" content="noindex, nofollow">
+
 # Privacy Policy
 
 **Effective Date:** June 10, 2026
