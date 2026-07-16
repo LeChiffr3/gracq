@@ -1,94 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gracq - Marketing Agency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #EFEEE5;
-            color: #0D0802;
-            font-family: 'Raleway', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 600px; /* Approximate width for 100 characters */
-            text-align: center;
-            padding: 20px;
-            flex: 1;
-        }
-        .logo {
-        }
-        .title {
-            font-weight: 600;
-        }
-        .sub-title, .text {
-            text-align: left;
-        }
-        .badges {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align items to the top */
-            gap: 10px; /* Space between badges */
-            margin-top: 20px;
-        }
-        .badges img {
-            max-width: 100%; /* Ensure badges don't overflow */
-            height: auto; /* Maintain aspect ratio */
-        }
-        .case-study {
-            margin-top: 20px;
-        }
-        .footer {
-            width: 100%;
-            background-color: #0D0802;
-            color: #EFEEE5;
-            text-align: center;
-            padding: 10px 0;
-            position: sticky;
-            bottom: 0;
-        }
-        .footer a {
-            color: #EFEEE5;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRACQ — digital media agency</title>
+<meta name="description" content="GRACQ is a digital media agency based in Paris, helping great European brands grow through paid media.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;1,300&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#0D0802;
+    --blanc:#FFFFFF;
+    --gris:#EFEEE5;
+    --bleu-pastel:#D2ECFC;
+    --rose:#F8C3C9;
+    --bleu:#194093;
+    --vert:#008D62;
+    --rouge:#E8472B;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:'Raleway',sans-serif;
+    font-weight:300;
+    background:var(--blanc);
+    color:var(--noir);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-family:'Poppins',sans-serif;font-weight:300}
+  a{color:inherit}
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{outline:2px solid var(--bleu);outline-offset:3px}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  .runhead{
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--bleu);
+    margin-bottom:40px;
+  }
+  .runhead::before{content:"GRACQ / "}
+
+  .btn{
+    display:inline-block;
+    font-family:'Raleway',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:lowercase;
+    text-decoration:none;
+    padding:14px 28px;
+    background:var(--noir);
+    color:var(--blanc);
+    border:1px solid var(--noir);
+    cursor:pointer;
+    transition:background .2s,color .2s;
+  }
+  .btn:hover{background:transparent;color:var(--noir)}
+  .btn.light{background:var(--blanc);color:var(--noir);border-color:var(--blanc)}
+  .btn.light:hover{background:transparent;color:var(--blanc)}
+
+  /* ---------- hero (white) ---------- */
+  header{
+    background:var(--blanc);
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    padding:32px 0 56px;
+  }
+  header .wrap{display:flex;flex-direction:column;flex:1;gap:48px}
+  nav{display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .logo{font-weight:600;letter-spacing:.24em;font-size:15px}
+  nav .links{display:flex;gap:32px;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:lowercase}
+  nav .links a{text-decoration:none}
+  nav .links a:not(.btn):hover{color:var(--bleu)}
+  nav .btn{padding:10px 20px}
+  .hero-center{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .hero-center h1{
+    font-weight:300;
+    font-size:clamp(42px,7.6vw,98px);
+    line-height:1.06;
+    letter-spacing:-0.015em;
+    max-width:16ch;
+  }
+  .hero-center h1 b{font-weight:600}
+  .hero-center p{margin-top:32px;max-width:48ch;font-size:17px}
+  .hero-cta{margin-top:40px}
+  .dots{display:flex;gap:10px;margin-bottom:32px}
+  .dots span{width:10px;height:10px;border-radius:50%;display:block}
+
+  section{padding:120px 0}
+
+  /* ---------- about (gris) ---------- */
+  .about{background:var(--gris)}
+  .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start}
+  .about-grid h2{font-weight:300;font-size:clamp(30px,4vw,44px);line-height:1.15}
+  .about-grid h2 b{font-weight:600}
+  .about-grid .lede{font-size:18px;max-width:52ch}
+  .pillars{list-style:none;margin-top:56px}
+  .pillars li{
+    display:flex;gap:20px;padding:24px 0;
+    border-top:1px solid rgba(13,8,2,.15);
+    align-items:baseline;font-size:17px;
+  }
+  .pillars li:last-child{border-bottom:1px solid rgba(13,8,2,.15)}
+  .pillars .dot{flex:0 0 12px;width:12px;height:12px;border-radius:50%;position:relative;top:1px}
+  .pillars .dot.b{background:var(--bleu)}
+  .pillars .dot.v{background:var(--vert)}
+  .pillars .dot.r{background:var(--rouge)}
+  .pillars b{font-weight:600}
+
+  /* ---------- case studies (white) ---------- */
+  .work-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:72px}
+  .work-head h2{font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.15}
+  .work-head h2 b{font-weight:600}
+  .case{
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+    padding-top:56px;border-top:1px solid rgba(13,8,2,.15);
+  }
+  .case .index{font-size:13px;letter-spacing:.2em;color:var(--bleu);margin-bottom:20px}
+  .case h3{font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.2}
+  .case h3 a{text-decoration:none;border-bottom:1px solid rgba(13,8,2,.3);padding-bottom:2px}
+  .case h3 a:hover{border-color:var(--bleu);color:var(--bleu)}
+  .case .tag{
+    display:inline-block;margin-top:16px;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    background:var(--bleu-pastel);padding:6px 12px;
+  }
+  .case p{margin-top:24px;max-width:42ch;font-size:16px;color:rgba(13,8,2,.75)}
+  .frame-vertical{
+    justify-self:center;width:min(360px,100%);aspect-ratio:9/16;
+    background:var(--bleu-pastel);padding:12px;
+  }
+  .frame-vertical iframe{width:100%;height:100%;border:0;display:block;background:var(--blanc)}
+  .case-cta{
+    margin-top:56px;padding-top:40px;border-top:1px solid rgba(13,8,2,.15);
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .case-cta p{font-size:17px}
+  .case-cta p .num{color:var(--bleu)}
+
+  /* ---------- series (gris) ---------- */
+  .series{background:var(--gris)}
+  .series .frame-wide{margin-top:56px;aspect-ratio:16/9;background:var(--rose);padding:12px}
+  .series .frame-wide iframe{width:100%;height:100%;border:0;display:block;background:var(--noir)}
+  .series h2{font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.15}
+  .series h2 b{font-weight:600}
+  .series .sub{margin-top:16px;font-size:15px;color:rgba(13,8,2,.75);max-width:56ch}
+  .series .ep{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--rouge);margin-bottom:20px;display:block}
+
+  /* ---------- contact (bleu) ---------- */
+  .contact{background:var(--bleu);color:var(--blanc)}
+  .contact .runhead{color:var(--bleu-pastel)}
+  .contact h2{font-weight:300;font-size:clamp(30px,4.4vw,52px);line-height:1.12;max-width:20ch}
+  .contact h2 b{font-weight:600}
+  .contact-cta{margin-top:48px;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+  .contact .alt{font-size:15px;color:var(--bleu-pastel)}
+  .contact .alt a{color:var(--blanc)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--noir);color:var(--gris);padding:40px 0}
+  .foot-row{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    font-size:12px;letter-spacing:.14em;
+  }
+  .foot-row a{text-decoration:none;border-bottom:1px solid rgba(239,238,229,.4);padding-bottom:2px}
+
+  @media (max-width:820px){
+    section{padding:80px 0}
+    .about-grid,.case{grid-template-columns:1fr;gap:40px}
+    .work-head{flex-direction:column;gap:8px;align-items:flex-start}
+    nav .links a:not(.btn){display:none}
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo" class="logo">
-        <h1 class="title">The Media Landscape Has Changed—Are You Ready?</h1>
-        <p class="text">For the past decades, attribution has misled media budget decisions, holding back growth for countless companies. The industry is catching up, and accurate <b>measurement</b> solutions exist and should be used to align your marketing and business goals.</p>
-        <p class="text">Meanwhile, the media landscape has evolved. It’s no longer just fragmented—it’s vastly more complex. Modern platforms rely on advanced <b>algorithms</b> that demand clean signals and careful monitoring.</p>
-        <p class="text">In this attention-driven economy, <b>creative</b> production is no longer a one-off project. It needs to sit at the heart of your marketing strategy.</p>
-        <p class="text">To grow your business and stay ahead while competitors lag, you need a media partner that’s agile, skilled in technology and data science, and can deliver creatives that resonate with today’s media consumption habits.</p>
-        <p class="text"><b>We’re here to solve these challenges</b>.</p>
-        <div class="badges">
-            <!-- Add your badges here -->
-                <!-- Google Partner Badge -->
-            <a href="https://www.google.com/partners/agency?id=8642716440" target="_blank">
-            <img src="https://www.gstatic.com/partners/badge/images/2024/PartnerBadgeClickable.svg"/>
-            </a>
-                <!-- Pinterest Badge -->
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fd73112c-9679-4c09-be0a-35b450d014b3" data-share-badge-host="https://www.credly.com"></div>
-            <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-        </div>
-        <div class="case-study">
-            <!-- <a href="https://www.linkedin.com/feed/update/urn:li:activity:7312843526977773568">Comment Willy anti-gapi a réduit le gaspillage de son budget publicitaire.</a> -->
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7312462699081129984?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-        </div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <span class="logo">GRACQ</span>
+      <div class="links">
+        <a href="#about">who we are</a>
+        <a href="#work">case studies</a>
+        <a href="#lab">le lab</a>
+        <a href="#contact">contact</a>
+      </div>
+    </nav>
+
+    <div class="hero-center">
+      <div class="dots" aria-hidden="true">
+        <span style="background:var(--bleu)"></span>
+        <span style="background:var(--vert)"></span>
+        <span style="background:var(--rouge)"></span>
+        <span style="background:var(--rose)"></span>
+        <span style="background:var(--bleu-pastel)"></span>
+      </div>
+      <h1>we make media budgets work <b>harder</b></h1>
+      <p>GRACQ is a digital media agency based in Paris, helping great European brands grow through paid media.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://calendar.app.google/Pxsg9HPgDfv1w8Qs8">book an intro call</a>
+      </div>
     </div>
-    <footer class="footer">
-        <p>&copy; 2025 Made with ☕ in Paris 18, France. <a href="mentions.html">Mentions Légales</a></p>
-    </footer>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="runhead">who we are</p>
+    <div class="about-grid">
+      <h2>about <b>gracq</b></h2>
+      <p class="lede">GRACQ helps retail and DNVB brands get more from their media through three practices that work as one.</p>
+    </div>
+
+    <ul class="pillars">
+      <li>
+        <span class="dot b" aria-hidden="true"></span>
+        <span><b>Creative strategy</b> turning audience insights into ad concepts, hooks, angles, and messaging.</span>
+      </li>
+      <li>
+        <span class="dot v" aria-hidden="true"></span>
+        <span><b>Modern measurement</b> to maximize budget impact.</span>
+      </li>
+      <li>
+        <span class="dot r" aria-hidden="true"></span>
+        <span><b>Custom-built tech tools</b> to solve unique media challenges.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="runhead">case studies</p>
+    <div class="work-head">
+      <h2>our clients' <b>testimonials</b></h2>
+    </div>
+
+    <article class="case">
+      <div>
+        <p class="index num">N°01</p>
+        <h3><a href="https://www.linkedin.com/company/willyantigaspi/">Willy anti-gaspi</a></h3>
+        <span class="tag">acquisition</span>
+        <p>Our first case study features our very first client: Willy anti-gaspi, the online platform fighting food waste — with a strong focus on acquiring new customers.</p>
+      </div>
+      <div class="frame-vertical">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7312462699081129984" title="Willy anti-gaspi — video case study" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <div class="case-cta">
+      <p>Your brand could be <span class="num">N°02</span>.</p>
+      <a class="btn" href="#contact">book an intro call</a>
+    </div>
+  </div>
+</section>
+
+<section class="series" id="lab">
+  <div class="wrap">
+    <p class="runhead">le lab</p>
+    <span class="ep num">episode 01</span>
+    <h2>the <b>web series</b></h2>
+    <p class="sub">Through Le Lab, we experiment openly with emerging formats and technologies to stay ahead — and bring those insights to our clients.</p>
+    <div class="frame-wide">
+      <iframe src="https://www.youtube.com/embed/5q6qeyellL8" title="GRACQ web series — episode 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="runhead">contact</p>
+    <div>
+      <h2>tell us about your <b>growth targets</b></h2>
+      <div class="contact-cta">
+        <!-- Point this at your Calendly/Cal.com link, or confirm the email address -->
+        <a class="btn light" href="mailto:hello@gracq.com?subject=Intro%20call%20%E2%80%94%20GRACQ">book an intro call</a>
+        <p class="alt"><a href="mailto:hello@gracq.com">hello@gracq.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <span class="logo">GRACQ</span>
+      <!-- Replace # with GRACQ's LinkedIn page URL -->
+      <span><a href="#">linkedin</a> · paris</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
