@@ -1,232 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>puZzLe — Incrementality, without the operational burden</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PuZzLe, your next budget decision, backed by proof</title>
+<meta name="description" content="Incrementality, without the operational burden. PuZzLe designs, monitors and reads geo-experiments on eDMAs, a geographic layer engineered for European markets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-        color: #111;
-        line-height: 1.6;
-    }
+  :root {
+    --bg: #F6F4F0;       /* warm cream ground */
+    --card: #FFFFFF;
+    --line: #E7E2D9;
+    --ink: #17150F;
+    --muted: #8A857C;
+    --accent: #E8542F;   /* the one accent */
+    --tint: #FDE7DD;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
 
-    .container {
-        width: 90%;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 80px 0;
-    }
+  header.site {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 28px 0 22px; border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+  }
+  .brand { font-weight: 700; font-size: 20px; letter-spacing: .01em; }
+  .strap { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); }
 
-    h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-    }
+  .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px;
+    align-items: center; }
+  .tagline { font-size: 21px; font-weight: 500; letter-spacing: -0.01em;
+    color: var(--ink); margin: 30px 0 18px; }
+  .hero-map { width: 100%; height: auto; }
+  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; gap: 8px; } }
+  h1 {
+    font-size: clamp(32px, 4.6vw, 44px); line-height: 1.1;
+    letter-spacing: -0.02em; font-weight: 700; margin-bottom: 20px;
+  }
+  h1 .dot { color: var(--accent); }
+  .lede { font-size: 19px; color: var(--ink); max-width: 640px; margin-bottom: 18px; }
+  .sub  { font-size: 16px; color: var(--muted); max-width: 640px; }
+  .sub strong { color: var(--ink); }
 
-    h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
+  section { margin-top: 72px; }
+  hr.divider { border: 0; border-top: 1px solid var(--line); margin: 72px 0 0; }
+  h2 {
+    font-size: 26px; letter-spacing: -0.01em; font-weight: 650;
+    margin-bottom: 16px; line-height: 1.25;
+  }
+  p { margin-bottom: 14px; max-width: 680px; }
+  p.big { font-size: 17px; }
+  .mono { font-family: 'Space Mono', monospace; font-size: 12.5px; color: var(--muted); }
 
-    p {
-        margin-bottom: 20px;
-        font-size: 18px;
-        color: #444;
-    }
+  ul.points { list-style: none; margin: 22px 0; }
+  ul.points li {
+    position: relative; padding: 0 0 0 26px; margin-bottom: 14px; max-width: 680px;
+  }
+  ul.points li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 10px; height: 10px; border-radius: 3px; background: var(--accent);
+  }
+  ul.points li strong { font-weight: 600; }
 
-    ul {
-        margin: 20px 0;
-        padding-left: 20px;
-    }
+  ol.steps { list-style: none; counter-reset: step; margin: 26px 0; }
+  ol.steps li {
+    counter-increment: step; position: relative;
+    padding: 0 0 0 52px; margin-bottom: 20px; max-width: 680px;
+  }
+  ol.steps li::before {
+    content: "0" counter(step);
+    position: absolute; left: 0; top: .1em;
+    font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+    color: var(--accent);
+    border: 1px solid var(--line); background: var(--card);
+    border-radius: 999px; padding: 3px 9px;
+  }
+  ol.steps li strong { font-weight: 600; }
 
-    li {
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: #444;
-    }
+  figure {
+    margin: 34px 0 8px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden;
+  }
+  figure img { display: block; width: 100%; height: auto; }
+  figure.tall img { max-height: 720px; object-fit: cover; object-position: top; }
+  figcaption {
+    font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted);
+    padding: 12px 16px; border-top: 1px solid var(--line);
+  }
 
-    .section {
-        display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 60px;
-        align-items: center;
-        margin-bottom: 100px;
-    }
+  .callout {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 26px; margin: 26px 0; max-width: 720px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .kicker {
+    font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
+    margin-bottom: 10px;
+  }
 
-    .image-placeholder {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        background-color: #f2f2f2;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #aaa;
-        font-size: 14px;
-        border: 1px dashed #ddd;
-    }
+  .quiet { color: var(--muted); }
+  em.tag { font-style: normal; font-weight: 600; }
 
-    .cta {
-        text-align: center;
-        padding: 100px 0;
-        background-color: #f9f9f9;
-    }
+  .cta {
+    margin-top: 80px; padding: 40px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    text-align: center;
+  }
+  .cta h2 { margin-bottom: 10px; }
+  .cta p { margin: 0 auto 24px; }
+  .btn {
+    display: inline-block; background: var(--ink); color: #fff;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    padding: 13px 28px; border-radius: 999px;
+    transition: background .15s ease;
+  }
+  .btn:hover { background: var(--accent); }
 
-    .cta h2 {
-        margin-bottom: 20px;
-    }
+  footer.site {
+    margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.site, footer.site a { font-family: 'Space Mono', monospace;
+    font-size: 12px; color: var(--muted); }
+  footer.site a { text-decoration: underline; text-underline-offset: 3px; }
 
-    .cta-button {
-        display: inline-block;
-        padding: 14px 32px;
-        font-size: 16px;
-        text-decoration: none;
-        background-color: #111;
-        color: #fff;
-        border-radius: 6px;
-    }
-
-    @media (max-width: 900px) {
-        .section {
-            grid-template-columns: 1fr;
-        }
-    }
-
-.section-image {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-}
-
-.section-image:hover {
-    transform: scale(1.02);
-}
-}
+  @media (max-width: 640px) {
+    header.site { flex-direction: column; gap: 4px; }
+    section { margin-top: 56px; }
+    hr.divider { margin-top: 56px; }
+    .cta { padding: 28px 20px; }
+  }
 </style>
 </head>
-
 <body>
+<div class="wrap">
 
-<div class="container">
+  <header class="site">
+    <span class="brand">PuZzLe</span>
+    <span class="strap">Marketing-mix decision platform</span>
+  </header>
 
-    <!-- Hero Section -->
-    <div class="section">
-        <div>
-            <h1>🧩 puZzLe</h1>
-            <h2>Modern measurement, without the operational burden.</h2>
-
-            <p>Measurement is shifting from attribution to incrementality. Marketing teams are expected to prove causal impact, not just report conversions.</p>
-
-            <p>Conversion lift tools offered by major platforms exist—but they are limited in scope, restricted to a single channel, and rarely provide the depth needed to guide real budget allocation decisions.</p>
-
-            <p>Geo-based incrementality testing solves this problem. It measures true causal impact across markets and provides reliable estimates of marginal return.</p>
-
-            <p>But in practice, geo lift experiments are difficult to run.</p>
-
-            <p>They require complex experimental design, statistical power analysis, strict geo compliance, continuous monitoring, and specialized econometric expertise. Most marketing teams do not have the operational bandwidth, and most data scientists are not embedded deeply enough in media execution to run continuous experimentation.</p>
-        </div>
-
-        <div>
-            <img src = 'images/image_3.png' class="section-image" >
-        </div>
-    </div>
-
-    <!-- Automation Section -->
-    <div class="section">
-        <div>
-            <h2>puZzLe automates incrementality testing end-to-end.</h2>
-
-            <p>puZzLe is the first platform designed to operationalize geo-based incrementality testing for marketing teams.</p>
-
-            <p>It handles the full experimentation lifecycle:</p>
-
-            <ul>
-                <li>Experiment design and geo selection</li>
-                <li>Statistical power analysis and feasibility validation</li>
-                <li>Campaign compliance monitoring and contamination detection</li>
-                <li>Incrementality estimation using synthetic control methods</li>
-                <li>Lift measurement with confidence intervals and robust inference</li>
-            </ul>
-
-            <p>No manual analysis. No custom modeling. No operational overhead.</p>
-
-            <p>One platform to design, run, and analyze incrementality experiments across your media channels.</p>
-        </div>
-
-        <div>
-            <img src = 'images/image_2.png' class="section-image" >
-        </div>
-    </div>
-
-    <!-- Optimization Section -->
-    <div class="section">
-        <div>
-            <h2>Move from measurement to optimization</h2>
-
-            <p>Once you have accumulated incrementality results, puZzLe allows you to translate experimental evidence into actionable budget decisions.</p>
-
-            <p>Using observed causal response curves, puZzLe estimates the allocation of budget across channels and markets that maximizes incremental revenue under your business constraints.</p>
-
-            <p>This enables you to move beyond attribution-based optimization and allocate media investment based on proven causal return.</p>
-        </div>
-
-        <div>
-            <img src = 'images/image_1.png' class="section-image" >
-        </div>
-    </div>
-<!-- MMM Integration Section -->
-<div class="section">
+  <!-- ── hero ─────────────────────────────────────────────────────────── -->
+  <div class="hero">
     <div>
-        <h2>Feed your MMM with real experimental data</h2>
-
-        <p>Marketing Mix Models are only as reliable as the data they are trained on. Most MMMs rely on observational variation, which makes it difficult to distinguish correlation from true causal impact.</p>
-
-        <p>puZzLe generates controlled geographic experiments that introduce clean, intentional variation in media investment. This produces real causal data points that can be exported and used to calibrate and improve your MMM.</p>
-
-        <p>Instead of relying on noisy, uncontrolled inputs, puZzLe provides experimentally validated lift measurements and response curves at the geo and channel level.</p>
-
-        <p>This transforms your MMM from a model trained on inferred signals into a model grounded in measured causal effects.</p>
-
-        <p><strong>Better inputs. Better calibration. Better decisions.</strong></p>
+      <h1>Your next budget decision, backed by proof<span class="dot">.</span></h1>
+      <p class="lede">PuZzLe runs the experiment, on your sales data, across
+      all your channels, and you walk into the budget meeting with a causal
+      number. Engineered for European markets.</p>
     </div>
+    <img class="hero-map" src="images/coverage-edma.png"
+         alt="The eDMA layer: eleven European markets divided into ~1,000 test units">
+  </div>
+  <p class="tagline">Incrementality, without the operational burden.</p>
+  <p><a class="btn" href="https://calendar.app.google/u9vBCoRrX3EHFTzs7">Book a demo →</a></p>
 
-    <div>
-        <img src="images/image_4.png" class="section-image">
+  <hr class="divider">
+
+  <!-- ── the objection ────────────────────────────────────────────────── -->
+  <section>
+    <h2 style="font-style: italic;">“We already run conversion lift studies.”</h2>
+    <p>Good, keep running them. They're fast, free, and the right tool for
+    tactical reads inside one platform. Then notice what they can never give
+    you:</p>
+    <ul class="points">
+      <li><strong>Your sales, not their conversions.</strong> A lift study is
+      graded by the platform selling you the media, on its own modelled,
+      consent-gated conversion data. A geo-experiment is graded on your
+      order book.</li>
+      <li><strong>Depth no platform can offer.</strong> The readout is your
+      data, so you can cut it: is the lift different for new vs returning
+      customers? For handbags vs shoes? Which parts of the business actually
+      <em class="tag">depend</em> on paid media?</li>
+    </ul>
+    <p class="big">Use both, but only one is graded by someone other than
+    the platform selling you the media.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ── europe / the moat ────────────────────────────────────────────── -->
+  <section>
+    <h2>Why Europe is the hard mode, and what we did about it</h2>
+    <p>In the US, geo-testing is a solved shape: 210 DMAs, every platform
+    speaks them. In Europe, Meta targets French cities, or <em>régions</em> but on 2013
+    boundaries, Google speaks criteria IDs that mix several geographic levels and
+    resist clean aggregation, TikTok has provinces with
+    English exonyms, your orders carry postal codes, and in the UK,
+    targeting, attribution and official geography are three different maps.
+    This is where first geo-experiments die: regions that can be targeted
+    but not measured, or measured but not targeted. First trustworthy
+    readout: next quarter.</p>
+    <div class="callout">
+      <div class="kicker">We pre-paid that tax</div>
+      <p>The eDMA layer covers Europe country by country, including a fully
+      engineered UK, with every unit verified on two criteria at once:
+      <strong>the platforms can execute it, your sales can be attributed to
+      it</strong>. Designs are only ever proposed in units that pass both.
+      The classic failure mode is not warned about; it is impossible by
+      construction. <strong>The calendar time goes into the flight, not the
+      plumbing.</strong></p>
     </div>
+    <figure class="tall">
+      <img src="images/screenshot-quality-maps.png"
+           alt="Predictor vs outcome maps, side by side, each at its true reporting grain">
+      <figcaption>Where the money goes vs where the revenue happens, each
+      platform at its own reporting grain, every unmatched euro accounted
+      for.</figcaption>
+    </figure>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ── allocation ───────────────────────────────────────────────────── -->
+  <section>
+    <h2>From one number to the next budget</h2>
+    <p>One experiment is a verdict on one channel. The program turns
+    verdicts into allocation:</p>
+    <figure>
+      <img src="images/screenshot-home.png"
+           alt="Every experiment on one timeline, running, warnings, closed, cooldowns">
+      <figcaption>The program at a glance: every experiment on one date axis
+     , running clean, running with a leakage warning, closed, cooldowns
+      hatched.</figcaption>
+    </figure>
+    <ul class="points">
+      <li><strong>Response curves, from experiments</strong>
+       A two-cell test runs the same channel at two
+      spend intensities and returns three points on its response curve:
+      zero, level one, level two. That's where “spend more” stops being an
+      opinion and saturation becomes visible.</li>
+      <li><strong>Your MMM, calibrated on causal ground truth.</strong>
+      Every readout emits a calibration row, channel × country × window ×
+      lift with its confidence interval, that anchors your Marketing Mix
+      Model to experiments instead of noisy observational variation.
+      <em class="tag">Better inputs. Better calibration. Better
+      decisions.</em></li>
+      <li><strong>Built for marketing teams, trusted by finance.</strong>
+      Every number traces back through an audit trail to raw model output —
+      methodology your CFO can interrogate, outputs shaped for budget
+      planning, not for a dashboard wall.</li>
+    </ul>
+    <figure>
+      <img src="images/screenshot-response-curve.png"
+           alt="Two-cell readout: per-cell lift and three response points, spend vs incremental">
+      <figcaption>A two-cell readout (illustrative, planted demo lifts): one
+      flight, two spend intensities, three points on the response curve —
+      and one click to the MMM calibration rows.</figcaption>
+    </figure>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ── science ──────────────────────────────────────────────────────── -->
+  <section>
+    <h2>The science, unhidden</h2>
+    <p>PuZzLe runs on Meta's open-source <strong>GeoLift</strong> —
+    augmented synthetic control, the academic standard for
+    geo-incrementality: a weighted blend of untouched regions reconstructs
+    what the test regions <em>would have done</em>, and the difference is
+    the lift your spend caused. We add the guard rails the paper assumes and
+    practice forgets: mandatory placebo tests, donor buffers against
+    spillover, cooldowns for ad carryover, and every number on screen
+    labelled <strong>exact</strong> or <strong>estimated</strong>.</p>
+    <figure>
+      <img src="images/screenshot-console.png"
+           alt="Raw GeoLift output in the console">
+      <figcaption>No black box: the raw GeoLift output of every run, kept
+      with the experiment.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ── cta ──────────────────────────────────────────────────────────── -->
+  <div class="cta">
+    <h2>Book a demo<span style="color:var(--accent)">.</span></h2>
+    <a class="btn" href="https://calendar.app.google/u9vBCoRrX3EHFTzs7">Book a demo now →</a>
+  </div>
+
+  <footer class="site">
+    <span>© gracq, PuZzLe</span>
+    <a href="mailto:matthieu@gracq.eu">matthieu@gracq.eu</a>
+  </footer>
+
 </div>
-    <!-- Credibility Section -->
-    <div class="section">
-        <div>
-            <h2>Built for marketing teams, trusted by finance</h2>
-
-            <ul>
-                <li>Causal measurement instead of attributed performance</li>
-                <li>Transparent and auditable experiment methodology</li>
-                <li>Structured experimentation at scale</li>
-                <li>Decision-ready outputs for budget planning and capital allocation</li>
-            </ul>
-        </div>
-
-        <div class="image-placeholder">
-            Square Image Placeholder
-        </div>
-    </div>
-
-</div>
-
-<!-- CTA Section -->
-<div class="cta">
-    <div class="container">
-        <h2>Request a demo</h2>
-        <p>See how puZzLe can help you measure true incrementality and optimize your media investment with confidence.</p>
-        <a href="#" class="cta-button">Schedule a Demo</a>
-    </div>
-</div>
-
 </body>
 </html>
