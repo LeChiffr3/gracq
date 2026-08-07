@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Feed enrichment, with proof. Broderie rewrites your product titles and descriptions from what's in the image, then measures the real uplift with controlled experiments on your own account data.">
+<title>Broderie, optimize your product feed, prove it worked, repeat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0D0802; --blanc:#FFFFFF;
+  --bleu:#194093; --vert:#008D62; --rouge:#E8472B;
+  --bleu-pastel:#D2ECFC; --gris-colore:#EFEEE5; --rose:#F8C3C9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Raleway',sans-serif;font-weight:300;color:var(--noir);
+  background:var(--gris-colore);
+  font-size:1.05rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.topbar{height:9px;background:var(--noir)}
+.wrap{max-width:880px;margin:0 auto;padding:26px 24px 40px}
+
+.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0}
+.masthead .wordmark{font-weight:700;font-size:1.35rem;letter-spacing:.01em}
+.masthead .descriptor{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.78rem;letter-spacing:.14em;color:rgba(13,8,2,.55)}
+.masthead + hr{margin:18px 0 48px}
+.accent{color:var(--vert)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:0 0 10px}
+.hero figure{margin:0}
+@media (max-width:700px){.hero{grid-template-columns:1fr}}
+
+h1{font-weight:700;font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.12;letter-spacing:-.015em;margin:0 0 20px}
+h2{font-weight:600;font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.25;margin:0 0 16px}
+p{margin:0 0 16px;max-width:660px}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--vert)}
+a.cta{font-weight:600;text-decoration:none}
+a.cta:hover{text-decoration:underline}
+a:focus-visible{outline:3px solid var(--noir);outline-offset:2px}
+
+hr{border:none;border-top:1.5px solid rgba(13,8,2,.18);margin:44px 0}
+
+figure{margin:26px 0}
+figure svg{display:block;width:100%;height:auto;border-radius:14px}
+figcaption{font-size:.9rem;font-style:italic;font-weight:300;margin-top:10px}
+
+ul{list-style:none;margin:0 0 16px;max-width:660px}
+ul li{position:relative;padding-left:26px;margin-bottom:12px}
+ul li::before{content:"";position:absolute;left:0;top:.6em;width:14px;height:6px;border-radius:3px;background:var(--vert)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chip{font-size:.85rem;padding:5px 12px;border-radius:999px;background:var(--blanc)}
+.chip.new{background:var(--rose)}
+
+.faq h3{font-weight:600;font-size:1.02rem;margin:20px 0 4px}
+.faq p{font-size:.98rem}
+
+.micro{font-size:.9rem;font-style:italic}
+footer{margin-top:52px;font-size:.88rem}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="wrap">
+
+<p class="masthead"><span class="wordmark">Broderie</span><span class="descriptor">Product-feed enrichment platform</span></p>
+<hr>
+
+<div class="hero">
+<div>
+<h1>Optimize your product feed. Prove it worked. <span class="accent">Repeat.</span></h1>
+
+<p>AI rewrites your titles and descriptions from what's in the image. Controlled
+experiments measure the real uplift. Winners stay, losers roll back, and every
+test makes the next one smarter.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before and after: a generic title with flat performance versus an enriched title with rising performance, plus 12.4 percent incremental clicks">
+        <rect width="720" height="300" fill="#FFFFFF"/>
+        <!-- left: before -->
+        <rect x="24" y="24" width="324" height="252" rx="18" fill="#EFEEE5"/>
+        <text x="48" y="62" font-family="Raleway,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#E8472B">BEFORE</text>
+        <text x="48" y="94" font-family="Raleway,sans-serif" font-size="19" font-weight="600" fill="#0D0802">Jupe en jean</text>
+        <polyline points="48,215 108,213 168,216 228,212 288,215 324,214" fill="none" stroke="#0D0802" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+        <text x="48" y="252" font-family="Raleway,sans-serif" font-size="13" font-style="italic" fill="#0D0802" fill-opacity="0.6">1 query matched</text>
+        <!-- right: after -->
+        <rect x="372" y="24" width="324" height="252" rx="18" fill="#D2ECFC"/>
+        <text x="396" y="62" font-family="Raleway,sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#008D62">AFTER</text>
+        <text x="396" y="94" font-family="Raleway,sans-serif" font-size="17" font-weight="600" fill="#0D0802">Jupe en denim bleu océan,</text>
+        <text x="396" y="116" font-family="Raleway,sans-serif" font-size="17" font-weight="600" fill="#0D0802">parfaite pour la plage</text>
+        <path d="M 396 226 C 460 224, 500 210, 560 186 S 650 148, 672 138" fill="none" stroke="#008D62" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="524" y="236" width="148" height="30" rx="15" fill="#008D62"/>
+        <text x="598" y="256" font-family="Poppins,sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">+12.4% clicks</text>
+      </svg>
+<figcaption>One enrichment, one experiment: same skirt, richer title, measured
+uplift.</figcaption>
+</figure>
+</div>
+
+<p>Informed changes, measured on live traffic, compounded over time.</p>
+
+<p><a class="cta" href="https://calendar.app.google/u9vBCoRrX3EHFTzs7">Book a demo &rarr;</a><br>
+<span class="micro">30 minutes. We test one of your products live.</span></p>
+
+<hr>
+
+<h2>Your title decides which searches you exist for.</h2>
+
+<p>Titles and descriptions define your semantic universe — the full set of
+queries your product can match. Everything the image contains but your ERP data
+doesn't is search traffic you never enter. And when you do change a title,
+nothing tells you whether it worked — or whether it was seasonality, promo,
+luck.</p>
+
+<p><strong>Feed today:</strong> "Jupe en jean"</p>
+<div class="chips"><span class="chip">jupe en jean</span></div>
+
+<p style="margin-top:14px"><strong>Enriched from the image:</strong> "Jupe en denim bleu océan, parfaite pour la plage"</p>
+<div class="chips">
+  <span class="chip">jupe en jean</span>
+  <span class="chip new">jupe en denim</span>
+  <span class="chip new">jupe bleu pâle</span>
+  <span class="chip new">jupe pour la plage</span>
+  <span class="chip new">tenue d'été</span>
+</div>
+
+<p class="micro" style="margin-top:12px">Same product, same image — one enters five times more auctions.</p>
+
+<hr>
+
+<h2>Rewriting a title takes more than AI.</h2>
+
+<p>Our AI doesn't run loose. It's driven by e-commerce and paid search experts
+who know how products get found — precise colors, patterns, materials,
+occasions people actually type. And you keep control: every change is reviewed
+against your brand rules before it ships. No hallucinated claims, no off-brand
+wording.</p>
+
+<p>Then the part no one else does: every change runs as a <strong>controlled
+experiment</strong>. Your original product stays paused while two test variants
+split live traffic — same product, title against title, measured on real
+impressions, clicks and conversions. Statistical confidence, not before/after
+guesswork. Winners stay in the feed. Losers roll back. Each result feeds the
+next round.</p>
+
+<figure>
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experiment readout: clicks for the test variant rise above the expected counterfactual band after the test starts">
+        <rect width="720" height="320" fill="#FFFFFF"/>
+        <!-- axes -->
+        <line x1="60" y1="240" x2="680" y2="240" stroke="#0D0802" stroke-opacity="0.18" stroke-width="1.5"/>
+        <line x1="60" y1="40" x2="60" y2="240" stroke="#0D0802" stroke-opacity="0.18" stroke-width="1.5"/>
+        <text x="30" y="145" font-family="Raleway,sans-serif" font-size="12" fill="#0D0802" fill-opacity="0.55" transform="rotate(-90 30 145)" text-anchor="middle">clicks</text>
+        <!-- test start -->
+        <line x1="340" y1="46" x2="340" y2="240" stroke="#0D0802" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="5 6"/>
+        <text x="340" y="34" font-family="Raleway,sans-serif" font-size="12" fill="#0D0802" fill-opacity="0.6" text-anchor="middle">test starts</text>
+        <!-- counterfactual band -->
+        <path d="M 340 168 C 420 166, 500 170, 680 164 L 680 196 C 500 202, 420 198, 340 192 Z" fill="#F8C3C9" fill-opacity="0.55"/>
+        <!-- counterfactual line -->
+        <path d="M 340 180 C 420 182, 500 186, 680 180" fill="none" stroke="#E8472B" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <!-- observed -->
+        <path d="M 70 186 C 140 178, 220 190, 340 180 C 420 168, 500 132, 680 104" fill="none" stroke="#008D62" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- legend -->
+        <circle cx="76" cy="62" r="5" fill="#008D62"/>
+        <text x="90" y="66" font-family="Raleway,sans-serif" font-size="13" fill="#0D0802">observed, new title</text>
+        <circle cx="76" cy="86" r="5" fill="#E8472B"/>
+        <text x="90" y="90" font-family="Raleway,sans-serif" font-size="13" fill="#0D0802">expected without the change</text>
+        <!-- verdict -->
+        <rect x="60" y="264" width="418" height="36" rx="18" fill="#EFEEE5"/>
+        <text x="80" y="287" font-family="Poppins,sans-serif" font-size="15" fill="#008D62">+12.4%</text>
+        <text x="146" y="287" font-family="Raleway,sans-serif" font-size="14" fill="#0D0802">incremental clicks — statistically significant</text>
+      </svg>
+<figcaption>Illustrative readout. Every number on screen comes from your own
+account data.</figcaption>
+</figure>
+
+<hr>
+
+<h2>Know what's rising — and what's leaking your budget.</h2>
+
+<ul>
+  <li><strong>Delivery alerts</strong> before disapprovals and image-policy
+  issues take your products offline.</li>
+  <li><strong>Emerging hero products</strong> — the fan that takes off during a
+  heatwave — detected while demand peaks, not after.</li>
+  <li><strong>Spend leaks</strong> surfaced early: products burning clicks
+  without converting.</li>
+</ul>
+
+<hr>
+
+<div class="faq">
+<h2>The questions you're already asking.</h2>
+
+<h3>Different from Product Studio?</h3>
+<p>Product Studio suggests rewrites inside Google, on Google's terms, with no
+brand control and no portable measurement. Broderie is expert-driven,
+reviewable, and proves uplift with your own data.</p>
+
+<h3>Does it replace my feed tool?</h3>
+<p>No. It sits on top of Channable, DataFeedWatch or your pipeline as the
+optimization and measurement layer.</p>
+
+<h3>Data?</h3>
+<p>EU-hosted, GDPR-compliant. We access only what tests require. Disconnect
+anytime.</p>
+
+<h3>AI-content rules?</h3>
+<p>IPTC labeling and EU AI Act compliance handled automatically.</p>
+</div>
+
+<hr>
+
+<h2>See what your feed is leaving on the table.</h2>
+
+<p>Book a demo — includes a free audit of your live feed: missed queries,
+delivery issues, testable uplift.</p>
+
+<p><a class="cta" href="https://calendar.app.google/u9vBCoRrX3EHFTzs7">Book a demo now &rarr;</a><br>
+<span class="micro"><a href="mailto:hello@gracq.eu?subject=Broderie%20feed%20audit">Get the audit by email instead &rarr;</a></span></p>
+
+<footer>&copy; gracq, Broderie</footer>
+
+</div>
+</body>
+</html>
